@@ -1,0 +1,279 @@
+:root {
+  --primary: #2E7D32;
+  --secondary: #FF8A65;
+  --text-dark: #1A3C1A;
+  --radius-lg: 24px;
+  --shadow-soft: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: var(--text-dark);
+}
+
+.navbar {
+  background: #fff;
+  padding: 18px 40px;
+  font-weight: 600;
+}
+
+.navbar a {
+  color: var(--primary);
+  margin: 0 16px;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+  text-align: center;
+}
+
+.fade-container {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.floating-order-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.category-chips {
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-weight: 500;
+  border: 2px solid #4CAF50;
+  background: white;
+  color: #4CAF50;
+  transition: all 0.25s ease-in-out;
+}
+
+.category-chips:hover {
+  background: #eaffeb;
+  transform: scale(1.05);
+}
+
+.category-chips.active {
+  background: #4CAF50;
+  color: white;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  border-color: #4CAF50;
+  transform: scale(1.08);
+}
+
+.product-card {
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.product-image {
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #444;
+}
+
+.qty-btn {
+  border: 2px solid #4CAF50;
+  border-radius: 50px;
+  width: 34px;
+  height: 34px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4CAF50;
+  background: white;
+  transition: 0.2s;
+}
+
+.qty-btn:hover {
+  background: #eaffeb;
+  transform: scale(1.12);
+}
+
+.qty-display {
+  font-weight: bold;
+  min-width: 25px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+.hero-section {
+  background: url("/public/assets/bg-fruit.jpg") center/cover no-repeat;
+  min-height: 80vh;
+  position: relative;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.35); /* overlay biar text jelas */
+}
+
+.hero-section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.featured-card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.featured-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.featured-card:hover .featured-img {
+  transform: scale(1.08);
+}
+
+.contact-card {
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form {
+  transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+input.form-control {
+  border-radius: 8px;
+}
+
+button.btn-success {
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  transition: 0.2s;
+}
+
+/* di App.css */
+.sidebar-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+}
+
+/* Sidebar tetap fix */
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #198754;
+  color: white;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* Konten utama */
+.admin-content {
+  margin-left: 250px;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+/* Mode mobile */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 200px;
+  }
+
+  .admin-content {
+    margin-left: 0;
+    padding-top: 80px; /* ✅ sesuai tinggi header */
+  }
+}
