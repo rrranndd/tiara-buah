@@ -61,7 +61,7 @@ export default function Home() {
             {/* Product 1 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
-                <img src="/assets/salad.png" alt="Salad Buah" className="featured-img" />
+                <img src={process.env.PUBLIC_URL + "/assets/salad.png"} alt="" className="featured-img" />
                 <div className="p-3">
                   <h5 className="text-success fw-bold">Salad Buah Premium</h5>
                   <p className="text-muted">Fresh & Creamy</p>
@@ -72,7 +72,7 @@ export default function Home() {
             {/* Product 2 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
-                <img src="/assets/mangga.jpg" alt="Buah Potong" className="featured-img" />
+                <img src={process.env.PUBLIC_URL + "/assets/nanas.jpg"} alt=""className="featured-img" />
                 <div className="p-3">
                   <h5 className="text-success fw-bold">Buah Potong Segar</h5>
                   <p className="text-muted">Siap Santap & Higienis</p>
@@ -83,7 +83,7 @@ export default function Home() {
             {/* Product 3 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
-                <img src="/assets/jeruk.jpg" alt="Hampers Buah" className="featured-img" />
+                <img src={process.env.PUBLIC_URL + "/assets/mangga.jpg"} alt="" className="featured-img" />
                 <div className="p-3">
                   <h5 className="text-success fw-bold">Paket Hampers Buah</h5>
                   <p className="text-muted">Elegan & Cocok Gift</p>

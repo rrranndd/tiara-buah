@@ -10,10 +10,11 @@ export default function Navbar() {
         {/* LOGO + Brand */}
         <Link className="navbar-brand d-flex align-items-center fw-bold text-success" to="/">
           <img 
-            src="/assets/logo.png" 
-            alt="Logo" 
-            style={{ width: "120px", height: "40px", marginRight: "5px", objectFit: "cover" }}
-          />
+              src={process.env.PUBLIC_URL + "/assets/logo.png"} 
+              alt="Logo"
+              style={{ width: "120px", height: "40px", marginRight: "5px", objectFit: "cover" }}
+            />
+
           Tiara Buah
         </Link>
 

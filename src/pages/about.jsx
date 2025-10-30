@@ -24,7 +24,7 @@ export default function About() {
 
         <div className="col-md-6 text-center">
           <img
-            src="/assets/logo.png"
+            src={process.env.PUBLIC_URL + "/assets/logo.png"} 
             alt="About"
             className="img-fluid"
             style={{ width: "400px", height: "auto", borderRadius: "10px" }}

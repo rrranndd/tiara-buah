@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import pool from "./db.js";
 import multer from "multer";
-import path from "path";
 
 dotenv.config();
 
