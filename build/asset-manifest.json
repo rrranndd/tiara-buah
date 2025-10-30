@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/tiara-buah/static/css/main.75e2d08d.css",
+    "main.js": "/tiara-buah/static/js/main.cbf88625.js",
+    "static/js/453.12e36e40.chunk.js": "/tiara-buah/static/js/453.12e36e40.chunk.js",
+    "static/media/bg-fruit.jpg": "/tiara-buah/static/media/bg-fruit.2c6fa466299a3bf6a1b3.jpg",
+    "static/media/bootstrap-icons.woff?": "/tiara-buah/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/tiara-buah/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/tiara-buah/index.html",
+    "main.75e2d08d.css.map": "/tiara-buah/static/css/main.75e2d08d.css.map",
+    "main.cbf88625.js.map": "/tiara-buah/static/js/main.cbf88625.js.map",
+    "453.12e36e40.chunk.js.map": "/tiara-buah/static/js/453.12e36e40.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75e2d08d.css",
+    "static/js/main.cbf88625.js"
+  ]
+}
