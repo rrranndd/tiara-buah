@@ -114,8 +114,6 @@ app.get("/produk", async (req, res) => {
 // =============================
 // 👑 LOGIN ADMIN (dengan support bcrypt fallback)
 // =============================
-import bcrypt from "bcrypt";
-
 // ... bagian atas file tetap sama
 
 app.post("/admin/login", async (req, res) => {
