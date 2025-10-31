@@ -3,9 +3,8 @@ import { FaAppleAlt, FaBars } from "react-icons/fa";
 
 export default function AdminSidebar({ setActivePage, activePage, onLogout }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isOpen, setIsOpen] = useState(!isMobile); // buka di desktop, tutup di mobile
+  const [isOpen, setIsOpen] = useState(!isMobile);
 
-  // 🔹 Deteksi perubahan ukuran layar (responsif)
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
@@ -34,7 +33,6 @@ export default function AdminSidebar({ setActivePage, activePage, onLogout }) {
 
   return (
     <>
-      {/* 🔹 Tombol toggle di mobile */}
       {isMobile && (
         <div
             id="admin-header"
@@ -58,7 +56,6 @@ export default function AdminSidebar({ setActivePage, activePage, onLogout }) {
         </div>
         )}
 
-      {/* 🔹 Sidebar */}
       <div
         className="d-flex flex-column justify-content-between"
         style={{

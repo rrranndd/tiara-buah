@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <div>
 
-      {/* HERO SECTION */}
       <section className="hero-section d-flex align-items-center text-center text-white">
         <div className="container">
           <h1 className="fw-bold display-4">Buah Segar & Premium</h1>
@@ -30,7 +29,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BENEFIT ICON SECTION */}
       <section className="py-5 text-center">
         <div className="container">
           <div className="row g-4 justify-content-center">
@@ -50,7 +48,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROMO / BEST SELLER PLACEHOLDER */}
       <section className="py-5 bg-light">
         <div className="container text-center">
           <h2 className="fw-bold text-success mb-3">Produk Unggulan</h2>
@@ -58,7 +55,6 @@ export default function Home() {
 
           <div className="row justify-content-center">
 
-            {/* Product 1 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
                 <img src={process.env.PUBLIC_URL + "/assets/salad.png"} alt="" className="featured-img" />
@@ -69,7 +65,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Product 2 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
                 <img src={process.env.PUBLIC_URL + "/assets/nanas.jpg"} alt=""className="featured-img" />
@@ -80,7 +75,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Product 3 */}
             <div className="col-6 col-md-4 mb-3">
               <div className="featured-card">
                 <img src={process.env.PUBLIC_URL + "/assets/mangga.jpg"} alt="" className="featured-img" />

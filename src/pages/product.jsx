@@ -25,7 +25,6 @@ export default function Products() {
 
     setProducts(data);
 
-    // 💡 Jangan reset semua qty, cukup tambahkan produk baru bila belum ada
     setQty(prevQty => {
       const updatedQty = { ...prevQty };
       data.forEach(item => {
@@ -62,7 +61,7 @@ export default function Products() {
       return;
     }
 
-    const phone = "6285159244835"; // ✅ GANTI nomor WhatsApp toko kamu
+    const phone = "6285159244835"; //
 
     const message = `Halo Tiara Buah, saya ingin memesan:\n\n${selected}\n\nTerima kasih `;
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
@@ -75,7 +74,6 @@ export default function Products() {
       <div className="container py-5">
         <h2 className="fw-bold text-success mb-4 text-center">Produk Tiara Buah</h2>
 
-        {/* ✅ Tombol kategori */}
         <div className="text-center mb-4 d-flex gap-2 justify-content-center flex-wrap">
           <button
             className={`category-chips ${selectedCategory === "all" ? "active" : ""}`}
@@ -106,7 +104,6 @@ export default function Products() {
           </button>
         </div>
 
-        {/* ✅ Grid Produk */}
         <div className="row">
           {loading && <p className="text-center">Loading...</p>}
           {!loading && products.map((item) => (
@@ -123,14 +120,12 @@ export default function Products() {
         </div>
       </div>
 
-      {/* ✅ Floating Button Kirim Pesanan */}
       <button
         className="btn btn-warning floating-order-btn"
         onClick={handleSendOrder}
       >
         Kirim Pesanan 
       </button>
-      {/* 🔘 Bubble total pesanan */}
       {totalQty > 0 && (
         <div
           className="bubble-total"

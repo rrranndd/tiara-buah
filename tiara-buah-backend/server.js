@@ -1,4 +1,3 @@
-// server.js (production-ready improved)
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -18,18 +17,15 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// ======= Security & Middleware =======
 app.use(helmet());
 app.use(express.json());
 
-// Logging (morgan) — aktifkan lebih verbose di development
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 } else {
   app.use(morgan("combined"));
 }
 
-// CORS — gunakan environment variable CLIENT_URL
 const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
 app.use(
   cors({
@@ -38,21 +34,17 @@ app.use(
   })
 );
 
-// Rate limiter untuk endpoint /api (sesuaikan nilai sesuai kebutuhan)
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 menit
-  max: 200, // max 200 request per IP per window
+  windowMs: 15 * 60 * 1000, 
+  max: 200,
   standardHeaders: true,
   legacyHeaders: false,
 });
 app.use("/api/", apiLimiter);
 
-// ======= Static files (uploads & assets) =======
-// Serve dengan path yang aman
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
-// ======= Multer upload config (limit + image only) =======
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, path.join(__dirname, "uploads")),
   filename: (req, file, cb) =>
@@ -60,7 +52,6 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  // hanya izinkan image
   if (!file.mimetype.startsWith("image/")) {
     cb(new Error("Hanya file gambar yang diperbolehkan"), false);
   } else {
@@ -70,11 +61,10 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({
   storage,
-  limits: { fileSize: 2 * 1024 * 1024 }, // max 2MB (ubah jika perlu)
+  limits: { fileSize: 2 * 1024 * 1024 },
   fileFilter,
 });
 
-// ======= Health / test endpoints =======
 app.get("/", (req, res) => {
   res.send("✅ Server Tiara Buah berjalan dengan baik!");
 });
@@ -93,9 +83,7 @@ app.get("/api/test-db", async (req, res) => {
   }
 });
 
-// =============================
-// 📦 ROUTE: Semua Produk
-// =============================
+//produk
 app.get("/produk", async (req, res) => {
   try {
     const [rows] = await pool.query(`
@@ -111,11 +99,7 @@ app.get("/produk", async (req, res) => {
   }
 });
 
-// =============================
-// 👑 LOGIN ADMIN (dengan support bcrypt fallback)
-// =============================
-// ... bagian atas file tetap sama
-
+// admin
 app.post("/admin/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -132,13 +116,11 @@ app.post("/admin/login", async (req, res) => {
     const admin = rows[0];
     const stored = admin.password;
 
-    // Pastikan stored ada dan string
     if (typeof stored !== "string") {
       console.error("Stored password invalid for user:", username);
       return res.status(500).json({ success: false, message: "Server error" });
     }
 
-    // Gunakan bcrypt.compare (tidak perlu fallback plaintext jika semua sudah hashed)
     const match = await bcrypt.compare(password, stored);
 
     if (!match) {
@@ -146,7 +128,6 @@ app.post("/admin/login", async (req, res) => {
       return res.status(401).json({ success: false, message: "Username atau password salah" });
     }
 
-    // Hapus password dari objek yang dikirim ke client
     delete admin.password;
 
     console.log(`Login success -> ${username}`);
@@ -158,9 +139,7 @@ app.post("/admin/login", async (req, res) => {
 });
 
 
-// =============================
-// 🗂️ CRUD KATEGORI
-// =============================
+// kategori
 app.get("/kategori", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM kategori");
@@ -207,9 +186,7 @@ app.delete("/kategori/:id", async (req, res) => {
   }
 });
 
-// =============================
-// 📦 CRUD PRODUK (upload gambar aman)
-// =============================
+// crud
 app.post("/produk", upload.single("gambar"), async (req, res) => {
   try {
     const { nama_produk, harga, id_kategori } = req.body;
@@ -254,9 +231,7 @@ app.delete("/produk/:id", async (req, res) => {
   }
 });
 
-// =============================
-// 📂 ROUTE: Produk per Kategori
-// =============================
+// kategori
 app.get("/produk/kategori/:id", async (req, res) => {
   try {
     const kategoriId = req.params.id;
@@ -274,9 +249,7 @@ app.get("/produk/kategori/:id", async (req, res) => {
   }
 });
 
-// =============================
-// 🔑 ROUTE: Admin (list tanpa password)
- // =============================
+// admin
 app.get("/admin", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT id_admin, username FROM admin");
@@ -287,7 +260,6 @@ app.get("/admin", async (req, res) => {
   }
 });
 
-// ======= Start server & graceful shutdown =======
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () =>
   console.log(`✅ Server berjalan pada port ${PORT}`)
@@ -299,7 +271,6 @@ const shutdown = async () => {
     console.log("Server closed.");
     process.exit(0);
   });
-  // optional: close DB pool if needed
   try {
     if (pool && pool.end) {
       await pool.end();
@@ -310,11 +281,9 @@ const shutdown = async () => {
   }
 };
 
-// Tangkap signal
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
 
-// Error handler (fallback)
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).json({ success: false, message: err.message || "Internal Server Error" });

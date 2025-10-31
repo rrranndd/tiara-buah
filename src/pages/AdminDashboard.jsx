@@ -39,7 +39,6 @@ export default function AdminDashboard({ onLogout }) {
         onLogout={onLogout}
       />
 
-      {/* Konten utama */}
       <div
         className="flex-grow-1"
         style={{
@@ -47,7 +46,7 @@ export default function AdminDashboard({ onLogout }) {
           overflowY: "auto",
           marginLeft: isMobile ? 0 : "250px",
           padding: "20px",
-          paddingTop: isMobile ? "80px" : "20px", // ✅ jarak dari header saat mobile
+          paddingTop: isMobile ? "80px" : "20px", 
           transition: "margin-left 0.3s ease",
           boxSizing: "border-box",
           height: "100vh",

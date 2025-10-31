@@ -10,7 +10,6 @@ export default function CategoryManager() {
     nama_kategori: "",
   });
 
-  // 🔹 Ambil semua kategori
   const fetchKategori = async () => {
     const res = await fetch("http://localhost:4000/kategori");
     const data = await res.json();
@@ -21,12 +20,10 @@ export default function CategoryManager() {
     fetchKategori();
   }, []);
 
-  // 🔹 Tambah atau Edit kategori
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (editMode) {
-      // update
       await fetch(`http://localhost:4000/kategori/${formData.id_kategori}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -34,7 +31,6 @@ export default function CategoryManager() {
       });
       alert("✅ Kategori berhasil diperbarui!");
     } else {
-      // tambah
       await fetch("http://localhost:4000/kategori", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,7 +45,6 @@ export default function CategoryManager() {
     fetchKategori();
   };
 
-  // 🔹 Hapus kategori
   const handleDelete = async (id) => {
     if (!window.confirm("Yakin ingin menghapus kategori ini?")) return;
     await fetch(`http://localhost:4000/kategori/${id}`, {
@@ -58,7 +53,6 @@ export default function CategoryManager() {
     fetchKategori();
   };
 
-  // 🔹 Edit kategori
   const handleEdit = (item) => {
     setFormData({
       id_kategori: item.id_kategori,
@@ -68,7 +62,6 @@ export default function CategoryManager() {
     setShowModal(true);
   };
 
-  // 🔹 Modal tambah kategori
   const openAddModal = () => {
     setFormData({ id_kategori: null, nama_kategori: "" });
     setEditMode(false);
@@ -84,7 +77,6 @@ export default function CategoryManager() {
         </button>
       </div>
 
-      {/* Tabel daftar kategori */}
       <div className="card shadow-sm border-0">
         <div className="card-body">
           <table className="table align-middle">
@@ -128,7 +120,6 @@ export default function CategoryManager() {
         </div>
       </div>
 
-      {/* Modal Tambah/Edit Kategori */}
       {showModal && (
         <div
           className="modal show fade d-block"

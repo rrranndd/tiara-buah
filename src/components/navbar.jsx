@@ -7,7 +7,6 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-light border-bottom shadow-sm sticky-top">
       <div className="container d-flex align-items-center">
         
-        {/* LOGO + Brand */}
         <Link className="navbar-brand d-flex align-items-center fw-bold text-success" to="/">
           <img 
               src={process.env.PUBLIC_URL + "/assets/logo.png"} 

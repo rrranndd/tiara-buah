@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../App.css"; // jika mau styling tambahan
+import "../App.css"; 
 
 export default function About() {
   return (
     <div className="about-page">
 
-      {/* HERO SECTION */}
       <section className="container py-5 d-flex flex-column flex-md-row align-items-center gap-4">
         <div className="col-md-6">
           <h1 className="fw-bold text-success mb-3">Tentang Tiara Buah</h1>

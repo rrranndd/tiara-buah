@@ -237,7 +237,6 @@ button.btn-success {
   transition: 0.2s;
 }
 
-/* di App.css */
 .sidebar-fixed {
   position: fixed;
   left: 0;
@@ -246,7 +245,6 @@ button.btn-success {
   width: 250px;
 }
 
-/* Sidebar tetap fix */
 .admin-sidebar {
   position: fixed;
   top: 0;
@@ -259,14 +257,12 @@ button.btn-success {
   overflow-y: auto;
 }
 
-/* Konten utama */
 .admin-content {
   margin-left: 250px;
   padding: 20px;
   background: #f8f9fa;
 }
 
-/* Mode mobile */
 @media (max-width: 768px) {
   .admin-sidebar {
     width: 200px;
@@ -274,6 +270,6 @@ button.btn-success {
 
   .admin-content {
     margin-left: 0;
-    padding-top: 80px; /* ✅ sesuai tinggi header */
+    padding-top: 80px; 
   }
 }

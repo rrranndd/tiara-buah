@@ -19,9 +19,7 @@ export default function AdminLogin({ onLogin }) {
       const data = await res.json();
 
       if (data.success) {
-        // ✅ simpan data admin ke App + localStorage
         onLogin(data.admin);
-        // ✅ arahkan ke dashboard dengan React Router
         navigate("/dashboard");
       } else {
         alert("❌ Username atau password salah!");

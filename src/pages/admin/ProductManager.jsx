@@ -16,7 +16,6 @@ export default function ProductManager() {
     id_kategori: "",
   });
 
-  // Ambil produk & kategori
   const fetchProduk = async (kategoriId = "all") => {
     const url =
       kategoriId === "all"
@@ -36,7 +35,6 @@ export default function ProductManager() {
     fetchKategori();
   }, []);
 
-  // Tambah atau edit produk
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -61,14 +59,12 @@ export default function ProductManager() {
     fetchProduk(selectedKategori);
   };
 
-  // Hapus produk
   const handleDelete = async (id) => {
     if (!window.confirm("Yakin hapus produk ini?")) return;
     await fetch(`http://localhost:4000/produk/${id}`, { method: "DELETE" });
     fetchProduk(selectedKategori);
   };
 
-  // Edit produk
   const handleEdit = (item) => {
     setFormData({
       id_produk: item.id_produk,
@@ -81,12 +77,10 @@ export default function ProductManager() {
     setShowModal(true);
   };
 
-  // Input file handler
   const handleFileChange = (e) => {
     setFormData({ ...formData, gambar: e.target.files[0] });
   };
 
-  // Buka modal tambah produk
   const openAddModal = () => {
     setFormData({
       id_produk: null,
@@ -108,7 +102,6 @@ export default function ProductManager() {
         </button>
       </div>
 
-      {/* Filter kategori */}
       <div className="mb-4 d-flex gap-2 flex-wrap">
         <button
           className={`btn ${selectedKategori === "all" ? "btn-success" : "btn-outline-success"}`}
@@ -135,7 +128,6 @@ export default function ProductManager() {
         ))}
       </div>
 
-      {/* GRID PRODUK */}
       <div className="row">
         {produk.map((item) => (
             <div
@@ -146,8 +138,8 @@ export default function ProductManager() {
                 className="card shadow-sm border-0"
                 style={{
                 width: "100%",
-                maxWidth: "250px", // ✅ batas ukuran card biar seragam
-                height: "370px",   // ✅ tinggi seragam
+                maxWidth: "250px", 
+                height: "370px",  
                 display: "flex",
                 flexDirection: "column",
                 }}
@@ -155,7 +147,7 @@ export default function ProductManager() {
                 <div
                 style={{
                     width: "100%",
-                    height: "250px", // ✅ ukuran gambar tetap
+                    height: "250px",
                     overflow: "hidden",
                     display: "flex",
                     justifyContent: "center",
@@ -169,7 +161,7 @@ export default function ProductManager() {
                     style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover", // ✅ isi penuh tanpa distorsi
+                    objectFit: "cover", 
                     }}
                 />
                 </div>
@@ -202,7 +194,6 @@ export default function ProductManager() {
         ))}
         </div>
 
-      {/* MODAL TAMBAH / EDIT */}
       {showModal && (
         <div className="modal show fade d-block" tabIndex="-1" style={{ background: "rgba(0,0,0,0.5)" }}>
           <div className="modal-dialog">

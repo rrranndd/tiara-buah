@@ -11,7 +11,6 @@ export default function Contact() {
         </p>
 
         <div className="row justify-content-center g-4">
-          {/* 🗺️ Alamat */}
           <div className="col-md-4">
             <div className="card shadow-sm border-0 h-100">
               <div className="card-body text-center">
@@ -22,7 +21,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* ⏰ Jam Buka */}
           <div className="col-md-4">
             <div className="card shadow-sm border-0 h-100">
               <div className="card-body text-center">
@@ -35,7 +33,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* 💬 Kontak */}
           <div className="col-md-4">
             <div className="card shadow-sm border-0 h-100">
               <div className="card-body text-center">
@@ -55,7 +52,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/*  Maps */}
         <div className="row justify-content-center mt-5">
           <div className="col-lg-8">
             <div className="ratio ratio-16x9 shadow-sm rounded-3">

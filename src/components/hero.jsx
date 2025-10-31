@@ -24,7 +24,6 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Image */}
         <div className="col-md-6 text-center">
           <img 
             src="/assets/hero-buah.png" 
