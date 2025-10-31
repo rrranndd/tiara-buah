@@ -165,7 +165,7 @@ body {
 }
 
 .hero-section {
-  background: url("/public/images/bg-fruit.jpg") center/cover no-repeat;
+  background: url("/public/assets/bg-fruit.jpg") center/cover no-repeat;
   min-height: 80vh;
   position: relative;
 }
